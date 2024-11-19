@@ -1,40 +1,85 @@
-import React, { useState, useEffect, useRef } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css"; // Import the styles for the editor
+import React, { useRef } from 'react';
+import ReactQuill, { Quill } from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // Import the snow theme for Quill
 
 const TextEditor = () => {
-  const [editorContent, setEditorContent] = useState<string>(""); // State for content
-  const editorRef = useRef<HTMLDivElement | null>(null); // Ref for the ReactQuill editor
+  const quillRef = useRef<ReactQuill | null>(null); // Explicitly type the ref
 
-  const handleChange = (content: string) => {
-    setEditorContent(content);
-    adjustHeight();
+  // Custom handler for uploading images
+  const handleImage = () => {
+    const input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/*');
+    input.click();
+
+    input.onchange = async () => {
+      if (input.files && input.files[0]) {
+        const file = input.files[0];
+        const reader = new FileReader();
+
+        // Convert the file to a data URL and insert into the editor
+        reader.onload = () => {
+          const imageUrl = reader.result as string; // Data URL of the image
+          const range = quillRef.current?.getEditor().getSelection();
+
+          if (range) {
+            quillRef.current?.getEditor().insertEmbed(range.index, 'image', imageUrl);
+          }
+        };
+
+        reader.readAsDataURL(file); // Convert the file to a data URL
+      } else {
+        console.error('No file selected');
+      }
+    };
   };
 
-  // Adjust the editor height based on its content
-  const adjustHeight = () => {
-    if (editorRef.current) {
-      const scrollHeight = editorRef.current.scrollHeight;
-      editorRef.current.style.height = `${scrollHeight}px`;
+  // Quill modules configuration
+  const modules = {
+    toolbar: {
+      container: [
+        [{ header: [1, 2, 3, 4, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        ['link', 'image'], // Include image option
+        [
+          { label: '2 Columns', action: () => applyColumns(2) },
+          { label: '3 Columns', action: () => applyColumns(3) },
+        ],
+      ],
+    },
+  };
+  
+  function applyColumns(columns: number) {
+    const editor = quillRef.current?.getEditor(); // Safely access getEditor
+    const range = editor?.getSelection(); // Safely access getSelection
+    if (editor && range) {
+      editor.format('class', `columns-${columns}`);
     }
-  };
+  }
 
-  useEffect(() => {
-    adjustHeight(); // Adjust height on initial load
-  }, [editorContent]);
+  // Quill formats configuration
+  const formats = [
+    'header',
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'list',
+    'bullet',
+    'link',
+    'image',
+  ];
 
   return (
     <div>
-      <div ref={editorRef} style={{ overflow: "hidden", transition: "height 0.2s", minHeight: "350px"}}>
-        <ReactQuill
-          value={editorContent}
-          onChange={handleChange}
-          theme="snow"
-          placeholder="Start writing here..."
-
-        />
-      </div>
-
+      <ReactQuill
+        ref={quillRef}
+        modules={modules}
+        formats={formats}
+        theme="snow"
+        placeholder="Start writing here..."
+      />
     </div>
   );
 };
