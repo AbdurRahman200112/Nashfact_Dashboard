@@ -5,8 +5,11 @@ import React from "react";
 
 export const metadata: Metadata = {
   title:
-    "Next.js E-commerce Dashboard Page | NextAdmin - Next.js Dashboard Kit",
-  description: "This is Next.js Home page for NextAdmin Dashboard Kit",
+    "Admin Dashboard | Nashfact",
+  description: "This is Admin Dashboard for the Nashfact Blogs",
+  icons: {
+    icon: "/images/logo/icon.png",
+  },
 };
 
 export default function Home() {
