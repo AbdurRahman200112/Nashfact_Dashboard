@@ -16,6 +16,7 @@ import VisibiltySelect from "@/components/FormElements/SelectGroup/StatusSelect"
 import ButtonDefault from "@/components/Buttons/ButtonDefault";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import QuillTextEditor from "@/components/QuillTextEditor";
+import TagsInput from "@/components/FormElements/TagsInput";
 
 
   const addNewPost = () => {
@@ -47,11 +48,6 @@ import QuillTextEditor from "@/components/QuillTextEditor";
                     
                   </div>
                   <div>
-                    {/* <textarea
-                      rows={12}
-                      placeholder="Start Writing..."
-                      className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
-                    ></textarea> */}
                     <QuillTextEditor />
                   </div>
                 </div>
@@ -86,12 +82,12 @@ import QuillTextEditor from "@/components/QuillTextEditor";
                   <ButtonDefault
                     label="Save Draft"
                     link="/"
-                    customClasses="border border-primary text-primary rounded-[5px] px-3 py-1.5 lg:px-8 xl:px-10"
+                    customClasses="border border-dark text-dark rounded-[5px] px-3 py-1.5 lg:px-8 xl:px-10"
                   />
                   <ButtonDefault
                     label="Preview"
                     link="/"
-                    customClasses="border border-dark text-dark rounded-[5px] px-3 py-1.5 lg:px-8 xl:px-10"
+                    customClasses="border border-primary text-primary rounded-[5px] px-3 py-1.5 lg:px-8 xl:px-10"
                   />
                 </div>
                 <div className="flex flex-col gap-5.5 px-6.5">
@@ -164,16 +160,14 @@ import QuillTextEditor from "@/components/QuillTextEditor";
                   </h3>
                 </div>
 
-                <div className="flex flex-col lg:flex-row xl:flex-row gap-2.5 p-3.5">
-                  <input
-                    type="text"
-                    placeholder="Default Input"
-                    className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-1.5 py-1 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
+                <div className="flex lg:block xl:block flex-col p-3.5">
+                  <TagsInput
                   />
                     <ButtonDefault
                       label="Add"
                       link="/"
-                      customClasses="border border-primary text-primary rounded-[5px] lg:px-3 xl:px-8"
+                      customClasses="border border-primary text-primary rounded-[5px] px-6 lg:px-6 xl:px-8 mt-4"
+                      
                     />
 
                 </div>
