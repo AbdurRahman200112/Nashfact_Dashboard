@@ -486,4 +486,51 @@ column-gap: 20px;
 column-count: 3;
 column-gap: 20px;
 }
+
+.tag-input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* Adjust spacing between tags */
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Space between tags */
+  }
+  
+  .tag {
+    display: flex;
+    align-items: center;
+    background-color: #e0e7ff; /* Soft blue for tag background */
+    color: #374151; /* Text color */
+    border-radius: 16px; /* Rounded tag shape */
+    padding: 4px 12px; /* Padding inside tags */
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .remove-btn {
+    background: none;
+    border: none;
+    color: #ef4444; /* Red color for the "x" */
+    font-size: 16px; /* Size of "x" */
+    margin-left: 8px; /* Space between the tag text and "x" */
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .remove-btn:hover {
+    color: #dc2626; /* Darker red on hover */
+  }
+  
+  .tag-input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 4px;
+    flex-grow: 1;
+    min-width: 100px;
+    background: transparent;
+  }
   
