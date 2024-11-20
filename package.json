@@ -20,11 +20,8 @@
     "react-quill": "^2.0.0",
     "react-select": "^5.8.0",
     "react-table": "^7.8.0",
-<<<<<<< HEAD
     "sortablejs": "^1.15.3",
-=======
     "react-tag-input": "^6.10.3",
->>>>>>> origin/main
     "tailwind-scrollbar": "^3.1.0"
   },
   "devDependencies": {
