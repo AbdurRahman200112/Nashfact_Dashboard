@@ -467,3 +467,13 @@ input[type="search"]::-webkit-search-cancel-button {
 .ql-container{
     min-height: 250px !important;
 }
+.subCategory{
+    margin-left: 20px;
+}
+.categoryCheckList li{
+    margin: 10px 0;
+}
+/* .categoryCheckList{
+    max-height: 300px;
+    overflow-y: auto;
+} */

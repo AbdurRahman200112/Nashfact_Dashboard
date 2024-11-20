@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
+const scrollPlugin = require("tailwind-scrollbar");
+
 
 const config: Config = {
   content: [
@@ -382,6 +384,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [scrollPlugin],
 };
 export default config;

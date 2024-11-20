@@ -25,7 +25,7 @@ import QuillTextEditor from "@/components/QuillTextEditor";
       <DefaultLayout>
         <Breadcrumb pageName="Add a new Post" />
 
-        <div className="grid grid-cols-1 gap-9 sm:grid-cols-[3fr_1fr]">
+        <div className="grid grid-cols-1 gap-9 sm:grid-cols-[4fr_2fr]">
           <div className="flex flex-col gap-9">
             
               <div className="rounded-[10px] border border-stroke bg-white shadow-1 dark:border-dark-3 dark:bg-gray-dark dark:shadow-card">
@@ -60,7 +60,7 @@ import QuillTextEditor from "@/components/QuillTextEditor";
             <div className="rounded-[10px] border border-stroke bg-white shadow-1 dark:border-dark-3 dark:bg-gray-dark dark:shadow-card">
               <div className="border-b border-stroke px-6.5 py-4 dark:border-dark-3">
                 <h3 className="font-medium text-dark dark:text-white">
-                  File upload
+                  Add Thumbnail
                 </h3>
               </div>
               <div className="flex flex-col gap-5.5 p-6.5">
@@ -109,29 +109,62 @@ import QuillTextEditor from "@/components/QuillTextEditor";
               {/* <!-- Checkbox and radio --> */}
               <div className="rounded-[10px] border border-stroke bg-white shadow-1 dark:border-dark-3 dark:bg-gray-dark dark:shadow-card">
                 <div className="border-b border-stroke px-6.5 py-4 dark:border-dark-3">
-                  <h3 className="font-medium text-dark dark:text-white">
-                    Checkbox and radio
-                  </h3>
+                  <h3 className="font-medium text-dark dark:text-white">Add Categories</h3>
                 </div>
                 <div className="flex flex-col gap-5.5 p-6.5">
-                  <CheckboxOne />
-                  <CheckboxTwo />
-                  <CheckboxThree />
-                  <CheckboxFour />
-                  <CheckboxFive />
+                  <ul className="categoryCheckList max-h-64 overflow-y-auto scrollbar scrollbar-thin ">
+                    <li>
+                      <CheckboxTwo label="Category 1" />
+                    </li>
+                    <li>
+                      <CheckboxTwo label="Category 2" />
+                      <ul className="subCategory">
+                        <li><CheckboxTwo label="Subcategory 2.1" /></li>
+                        <li><CheckboxTwo label="Subcategory 2.2" /></li>
+                        <li><CheckboxTwo label="Subcategory 2.3" /></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <CheckboxTwo label="Category 3" />
+                    </li>
+                    <li>
+                      <CheckboxTwo label="Category 4" />
+                    </li>
+                    <li>
+                      <CheckboxTwo label="Category 5" />
+                      <ul className="subCategory">
+                        <li><CheckboxTwo label="Subcategory 5.1" /></li>
+                        <li><CheckboxTwo label="Subcategory 5.2" /></li>
+                        <li><CheckboxTwo label="Subcategory 5.3" /></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </div>
+
 
               {/* <!-- Select input --> */}
               <div className="rounded-[10px] border border-stroke bg-white shadow-1 dark:border-dark-3 dark:bg-gray-dark dark:shadow-card">
                 <div className="border-b border-stroke px-6.5 py-4 dark:border-dark-3">
+
                   <h3 className="font-medium text-dark dark:text-white">
-                    Select input
+                    Tags
                   </h3>
                 </div>
-                <div className="flex flex-col gap-5.5 p-6.5">
-                  <SelectGroupTwo />
-                  <MultiSelect id="multiSelect" />
+
+                <div className="flex flex-col lg:flex-row xl:flex-row gap-2.5 p-3.5">
+                  <input
+                    type="text"
+                    placeholder="Default Input"
+                    className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-1.5 py-1 text-dark outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
+                  />
+                    <ButtonDefault
+                      label="Add"
+                      link="/"
+                      customClasses="border border-primary text-primary rounded-[5px] lg:px-3 xl:px-8"
+                    />
+                  {/* <SelectGroupTwo />
+                  <MultiSelect id="multiSelect" /> */}
                 </div>
               </div>
           </div>

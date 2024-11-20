@@ -1,18 +1,22 @@
 import { useState } from "react";
 
-const CheckboxTwo = () => {
+interface CheckboxTwoProps {
+  label: string; // Label text for the checkbox
+}
+
+const CheckboxTwo: React.FC<CheckboxTwoProps> = ({ label }) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
 
   return (
     <div>
       <label
-        htmlFor="checkboxLabelTwo"
+        htmlFor={label}
         className="flex cursor-pointer select-none items-center text-body-sm font-medium"
       >
         <div className="relative">
           <input
             type="checkbox"
-            id="checkboxLabelTwo"
+            id={label}
             className="sr-only"
             onChange={() => {
               setIsChecked(!isChecked);
@@ -43,7 +47,7 @@ const CheckboxTwo = () => {
             </span>
           </div>
         </div>
-        Checkbox Text
+        {label}
       </label>
     </div>
   );
