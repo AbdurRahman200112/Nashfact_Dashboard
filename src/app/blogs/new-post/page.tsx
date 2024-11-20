@@ -12,7 +12,7 @@ import SwitcherTwo from "@/components/FormElements/Switchers/SwitcherTwo";
 import DatePickerTwo from "@/components/FormElements/DatePicker/DatePickerTwo";
 import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import MultiSelect from "@/components/FormElements/MultiSelect";
-import SelectGroupTwo from "@/components/FormElements/SelectGroup/SelectGroupTwo";
+import VisibiltySelect from "@/components/FormElements/SelectGroup/StatusSelect";
 import ButtonDefault from "@/components/Buttons/ButtonDefault";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import QuillTextEditor from "@/components/QuillTextEditor";
@@ -82,21 +82,33 @@ import QuillTextEditor from "@/components/QuillTextEditor";
                     Publish
                   </h3>
                 </div>
-                <div className="flex flex-col gap-5.5 p-6.5">
+                <div className="flex flex-row gap-5.5 p-6.5 justify-between">
                   <ButtonDefault
                     label="Save Draft"
                     link="/"
-                    customClasses="border border-primary text-primary rounded-[5px] px-10 py-3.5 lg:px-8 xl:px-10"
+                    customClasses="border border-primary text-primary rounded-[5px] px-3 py-1.5 lg:px-8 xl:px-10"
                   />
                   <ButtonDefault
                     label="Preview"
                     link="/"
-                    customClasses="border border-dark text-dark rounded-[5px] px-10 py-3.5 lg:px-8 xl:px-10"
+                    customClasses="border border-dark text-dark rounded-[5px] px-3 py-1.5 lg:px-8 xl:px-10"
                   />
+                </div>
+                <div className="flex flex-col gap-5.5 px-6.5">
+                  <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white flex gap-1 items-center">
+                    Status: <b>Draft</b> <VisibiltySelect />
+                  </label>
+                  <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
+                    Visibility: <b>Public</b> 
+                  </label>
+                  <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white flex gap-10">
+                    Private  <SwitcherTwo /> Public 
+                  </label>
+
                 </div>
                 <div className="border-t border-stroke px-6.5 py-4 dark:border-dark-3 flex">
                 <ButtonDefault
-                  label="Publish"
+                  label="Update"
                   link="/"
                   customClasses="bg-primary text-white rounded-[5px] px-10 py-3.5 lg:px-8 xl:px-10 ml-auto"
                 />
@@ -163,8 +175,7 @@ import QuillTextEditor from "@/components/QuillTextEditor";
                       link="/"
                       customClasses="border border-primary text-primary rounded-[5px] lg:px-3 xl:px-8"
                     />
-                  {/* <SelectGroupTwo />
-                  <MultiSelect id="multiSelect" /> */}
+
                 </div>
               </div>
           </div>

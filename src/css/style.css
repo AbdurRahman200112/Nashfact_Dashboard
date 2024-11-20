@@ -473,7 +473,17 @@ input[type="search"]::-webkit-search-cancel-button {
 .categoryCheckList li{
     margin: 10px 0;
 }
-/* .categoryCheckList{
-    max-height: 300px;
-    overflow-y: auto;
-} */
+.ql-editor.columns-1 {
+    column-count: 1;
+  }
+  
+.ql-editor.columns-2 {
+column-count: 2;
+column-gap: 20px;
+}
+
+.ql-editor.columns-3 {
+column-count: 3;
+column-gap: 20px;
+}
+  
